@@ -1,4 +1,4 @@
-<?php require 'model/Database.php';
+<?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs; 
     $nameError = '';
     $firstnameError = '';
@@ -70,14 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { //on initialise no
         $urlError = 'Enter a valid url';
         $valid = false;
     } // si les données sont présentes et bonnes, on se connecte à la base 
-    if ($valid) {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO user (name,firstname,age,tel, email, pays,comment, metier,url) values(?, ?, ?, ? , ? , ? , ? , ?, ?)";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($name, $firstname, $age, $tel, $email, $pays, $comment, $metier, $url));
-        Database::disconnect();
-        header("Location: index.php");
-    }
+    return $valid;
 }
 ?>
