@@ -3,7 +3,7 @@ include('vue/common/head.html');
 
 $loc = filter_input(INPUT_GET, "loc");
 switch ($loc) {
-    case 'index':
+    case 'user':
         include("vue/content/index_content.php");
         break;
     case 'delete':

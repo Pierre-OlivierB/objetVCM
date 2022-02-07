@@ -2,6 +2,7 @@
 <html>
 
 <?php
+include_once('vue/common/template.php');
 //loc = vue user souhaitée
 $loc = filter_input(INPUT_GET,"loc");
 //action = action user souhaitée
@@ -23,7 +24,7 @@ if (isset($control)) {
     $data = $control->getData();
     //vue responsive
     $view = $control->getView();
-    include('vue/common/template.php');
+    include_once('vue/common/template.php');
 } else{
     echo "La route spécifié n'existe pas";
 }

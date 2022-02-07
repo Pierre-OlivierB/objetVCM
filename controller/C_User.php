@@ -50,17 +50,14 @@ class C_User extends C_Core {
     }
     public function delete()
     {
-        $this->data = $this->model->getAllUser();
-        $this->view = "user";
+        //...
     }
     public function edit()
     {
-        $this->data = $this->model->getAllUser();
-        $this->view = "user";
+        //...
     }
     public function read()
     {
-        $this->data = $this->model->getAllUser();
-        $this->view = "user";
+        //...
     }
 }

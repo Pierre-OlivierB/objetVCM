@@ -20,6 +20,7 @@ class M_User extends Database
             echo $e->getMessage();
         }
         return $result;
+        Database::disconnect();
     }
     public function insertUser($name, $firstname, $age, $tel, $email, $pays, $comment, $metier, $url)
     {
