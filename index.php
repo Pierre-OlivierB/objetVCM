@@ -19,6 +19,12 @@ switch($loc){
         $loc='user';
         $action='';
         $control = new C_User($action);
+        break;
+    case 'page':
+        $action='newAdd';
+        include('controller/C_User.php');
+        $control = new C_User($action);
+        break;
     default:
         break;
 }

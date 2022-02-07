@@ -10,7 +10,7 @@ class C_User extends C_Core {
         $this->model=new M_User();
         //action demandée et faite sur l'objet, possible grâce au model
         switch($action){
-            case 'add':
+            case 'create':
                 $this->create();
                 break;
             case 'delete':
@@ -21,6 +21,9 @@ class C_User extends C_Core {
                 break;
             case 'read':
                 $this->read();
+                break;
+            case 'newAdd':
+                $this->newAdd();
                 break;
             default:
                 $this->index();
@@ -34,12 +37,14 @@ class C_User extends C_Core {
     }
     public function create()
     {
-        include ('c_add.php');
+        $this->view="create";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs; 
+            include ('c_add.php');
             $result = $this->model->insertUser($name, $firstname, $age, $tel, $email, $pays, $comment, $metier, $url);
             if($result){
                 $this->data=$result;
-                $this->view="success";
+                $this->view="user";
             }
             else{
                 $this->view="error";
@@ -47,6 +52,10 @@ class C_User extends C_Core {
         } else{
             echo "aucune données envoyées";
         }
+    }
+    public function newAdd(){
+        $this->view="create";
+        include "c_add.php";
     }
     public function delete()
     {

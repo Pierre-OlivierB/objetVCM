@@ -1,7 +1,4 @@
 <?php include('controller/c_add.php')  ?>
-<body>
-
-
 
     <br />
     <div class="container">
@@ -196,8 +193,3 @@
 
     </div>
     <p>
-
-
-</body>
-
-</html>
