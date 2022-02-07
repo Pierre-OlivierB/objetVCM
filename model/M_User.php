@@ -2,6 +2,7 @@
 
 include_once "Database.php";
 
+
 //la class M_User permet la connection en objet
 
 class M_User extends Database
@@ -20,11 +21,11 @@ class M_User extends Database
         }
         return $result;
     }
-    public function insertUser()
+    public function insertUser($name, $firstname, $age, $tel, $email, $pays, $comment, $metier, $url)
     {
         $result = false;
-        include ('c_add.php');
-        if ($valid) {
+        
+        try{
             $pdo = $this->getConnection();
             $query = $pdo->prepare ('INSERT INTO user (name,firstname,age,tel, email, pays,comment, metier,url) values(:name, :firstname, :age, :tel, :email, :pays, :comment, :metier, :url)');
             $query->bindParam(":name",$name);
@@ -36,10 +37,13 @@ class M_User extends Database
             $query->bindParam(":comment",$comment);
             $query->bindParam(":metier",$metier);
             $query->bindParam(":url",$url);
-            $q->execute(array($name, $firstname, $age, $tel, $email, $pays, $comment, $metier, $url));
+            $result=$query->execute();
             Database::disconnect();
             header("Location: index.php");
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+        return $result;
     }
     public function deleteUser()
     {

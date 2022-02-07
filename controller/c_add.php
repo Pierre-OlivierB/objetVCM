@@ -1,5 +1,5 @@
 <?php 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs; 
+
     $nameError = '';
     $firstnameError = '';
     $ageError = '';
@@ -70,6 +70,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { //on initialise no
         $urlError = 'Enter a valid url';
         $valid = false;
     } // si les données sont présentes et bonnes, on se connecte à la base 
-    return $valid;
-}
 ?>
