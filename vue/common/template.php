@@ -1,30 +1,63 @@
 <?php
-include('vue/common/head.html');
+include_once 'vue/common/head.html';
+?>
+<body>
+    <br />
+    <div class="container">
+        <br />
+        <div class="row">
+            <br />
+            <h2>Crud en Php</h2>
+            <p>
+        </div>
+        <p>
+            <br />
+        <div class="row">
+            <a href="index.php?loc=add" class="btn btn-success">Ajouter un user</a>
+            <br />
+            <div class="table-responsive">
+                <br />
+                <table class="table table-hover table-bordered">
+                    <br />
+                    <thead>
+                        <th>Name</th>
+                        <p>
+                            <th>Firstname</th>
+                        <p>
+                            <th>Age</th>
+                        <p>
+                            <th>Tel</th>
+                        <p>
+                            <th>Pays</th>
+                        <p>
+                            <th>Email</th>
+                        <p>
+                            <th>Comment</th>
+                        <p>
+                            <th>metier</th>
+                        <p>
+                            <th>Url</th>
+                        <p>
+                            <th>Edition</th>
+                        <p>
+                    </thead>
+                    <p>
+                        <br />
+                        <tbody>
+                            <?php
+                            // Notre variable vue doit avoir la valeur du même nom de fichier contenu dans le dossier vue
+                            include_once($view . ".php");
+                            ?>
+                        </tbody>
+                    <p>
 
-$loc = filter_input(INPUT_GET, "loc");
-switch ($loc) {
-    case 'user':
-        include("vue/content/index_content.php");
-        break;
-    case 'delete':
-        include('controller/c_delete.php');
-        include("vue/content/delete_content.php");
-        break;
-    case 'edit':
-        include('controller/c_edit.php');
-        include("vue/content/edit_content.php");
-        break;
-    case 'read':
-        include('controller/c_read.php');
-        include("vue/content/read_content.php");
-        break;
-    case 'add':
-        include("vue/content/add_content.php");
-        break;
-    case null:
-        include("vue/content/index_content.php");
-        break;
-    default:
-        include("vue/content/404.php");
-        break;
-}
+                </table>
+                <p>
+
+            </div>
+            <p>
+        </div>
+        <p>
+    </div>
+    <p>
+</body>

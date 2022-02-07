@@ -2,9 +2,7 @@
      
     public static $cont = null; 
 
-    public function __construct() { 
-        die('Init function is not allowed'); 
-    } 
+
     private function startConnection() 
     { 
         if ( null == self::$cont ) { 
@@ -33,6 +31,6 @@
      
     public function disconnect()
     {
-        self::$cont = null;
+       return self::$cont = null;
     }
 }

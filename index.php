@@ -2,7 +2,7 @@
 <html>
 
 <?php
-include_once('vue/common/template.php');
+
 //loc = vue user souhaitée
 $loc = filter_input(INPUT_GET,"loc");
 //action = action user souhaitée
@@ -14,6 +14,11 @@ switch($loc){
         include('controller/C_User.php');
         $control = new C_User($action);
         break;
+    case null:
+        include('controller/C_User.php');
+        $loc='user';
+        $action='';
+        $control = new C_User($action);
     default:
         break;
 }
